@@ -1,0 +1,35 @@
+# Magento generated files
+/var/
+/vendor/
+/pub/static/
+/pub/media/
+generated/
+
+# Composer
+/auth.json
+/composer.lock
+
+# Node, Grunt
+/node_modules/
+/Gruntfile.js.sample
+/package.json.sample
+/grunt-config.json.sample
+
+# PHP Server
+/phpserver
+
+# System files
+.DS_Store
+*.log
+
+# IDE / Editor files
+.idea/
+.vscode/
+
+# Docker-specific
+nginx.conf.sample
+
+# Environment files
+.env 
+.env* 
+
