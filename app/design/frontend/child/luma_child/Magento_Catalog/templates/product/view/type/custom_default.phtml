@@ -1,0 +1,46 @@
+<?php
+// Get the product object
+$product = $block->getProduct();
+
+// Get stock information
+$stockItem = $_product->getExtensionAttributes()->getStockItem();
+$isInStock = $stockItem ? $stockItem->getIsInStock() : false;
+$stockQty = $stockItem ? (int)$stockItem->getQty() : 0;
+
+// Determine stock status and CSS class
+$stockColorClass = 'stock-red'; // Default: red for out of stock
+$stockText = __('Out of stock');
+
+// Determine stock status and class based on quantity
+if ($isInStock && $_product->isAvailable()) {
+    if ($stockQty <= 5 && $stockQty > 0) {
+        $stockColorClass = 'stock-orange';
+        $stockText = __('Low stock (%1 left)', $stockQty);
+    } elseif ($stockQty > 5) {
+        $stockColorClass = 'stock-green';
+        $stockText = __('In stock');
+    } else {
+        // This handles the case where it's marked as "in stock" but qty is 0 or negative
+        $stockColorClass = 'stock-red';
+        $stockText = __('Out of stock');
+    }
+} else {
+    $stockColorClass = 'stock-red';
+    $stockText = __('Out of stock');
+}
+?>
+
+<!-- Custom Stock Container with Dynamic Color Based On Availability -->
+<?php if ($block->displayProductStockStatus()) :?>
+   <!-- Stock Display Container -->
+     <div class="stock-container custom-stock-display">
+        <!-- Content Container -->
+         <div class="stock <?= $product->isAvailable() && $isInStock ? 'available' : 'unavailable' ?> <?= $block->escapeHtmlAttr($stockColorClass) ?>" 
+             title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+            <span class="stock-text"><?= $block->escapeHtml($stockText) ?></span>
+            <?php if ($isInStock && $stockQty > 0 && $stockQty <= 10): ?>
+                <span class="stock-quantity"><?= $block->escapeHtml(__('(%1 available)', $stockQty)) ?></span>
+            <?php endif; ?>
+        </div>
+     </div>
+<?php endif; ?>

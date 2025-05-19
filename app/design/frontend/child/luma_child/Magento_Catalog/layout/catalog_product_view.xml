@@ -6,7 +6,7 @@
         <!-- Remove completely from original position -->
         <referenceBlock name="catalog.product.related" remove="true" />
         
-   <!-- Add related products as a new tab -->
+        <!-- Add related products as a new tab -->
         <referenceBlock name="product.info.details">
             <block class="Magento\Catalog\Block\Product\ProductList\Related" 
                    name="catalog.product.related.tab" 
