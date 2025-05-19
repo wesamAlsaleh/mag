@@ -3,10 +3,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <!-- Remove related products from original position -->
-        <!-- <move element="catalog.product.related" destination="product.info.details" after="description"/> -->
-        
-        <!-- Alternative: Remove completely from original position -->
+        <!-- Remove completely from original position -->
         <referenceBlock name="catalog.product.related" remove="true" />
         
    <!-- Add related products as a new tab -->
