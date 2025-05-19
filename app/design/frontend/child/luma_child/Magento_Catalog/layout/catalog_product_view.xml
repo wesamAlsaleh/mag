@@ -10,7 +10,7 @@
         <referenceBlock name="product.info.details">
             <block class="Magento\Catalog\Block\Product\ProductList\Related" 
                    name="catalog.product.related.tab" 
-                   template="Magento_Catalog::product/list/items.phtml" 
+                   template="Magento_Catalog::product/list/custom-items.phtml" 
                    group="detailed_info">
 
                 <!-- Tab title and identifier -->
