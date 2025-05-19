@@ -1,5 +1,5 @@
 <?php
-namespace Ali\CustomModule\Controller\Route;
+namespace Wesam\CustomModule\Controller\Route;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
