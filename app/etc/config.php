@@ -384,6 +384,7 @@ return [
         'PayPal_BraintreeGiftWrapping' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'PayPal_BraintreeReward' => 1,
+        'Wesam_CustomModule' => 1,
         'Wesam_Popup' => 1
     ]
 ];
