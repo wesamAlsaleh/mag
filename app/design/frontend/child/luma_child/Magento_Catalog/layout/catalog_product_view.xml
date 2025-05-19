@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove related products from original position -->
+        <!-- <move element="catalog.product.related" destination="product.info.details" after="description"/> -->
+        
+        <!-- Alternative: Remove completely from original position -->
+        <referenceBlock name="catalog.product.related" remove="true" />
+        
+   <!-- Add related products as a new tab -->
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\ProductList\Related" 
+                   name="catalog.product.related.tab" 
+                   template="Magento_Catalog::product/list/items.phtml" 
+                   group="detailed_info">
+
+                <!-- Tab title and identifier -->
+              <arguments>
+                    <argument name="type" xsi:type="string">related</argument>
+                    <argument name="title" translate="true" xsi:type="string">Related Products</argument>
+                    <argument name="sort_order" xsi:type="number">30</argument>
+                </arguments>
+
+                <!-- Content -->
+                 <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" 
+                       name="catalog.product.related.tab.item" 
+                       as="list_item">
+                    <container name="catalog.product.related.tab.item.info" as="product_item_info"/>
+                    <container name="catalog.product.related.tab.item.actions" as="product_item_actions"/>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
