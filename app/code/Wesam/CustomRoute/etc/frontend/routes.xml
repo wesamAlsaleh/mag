@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
+        <!-- Define the route: mag.test/wesam/route -->
         <route id="wesam" frontName="wesam">
+            <!-- Route Module -->
             <module name="Wesam_CustomRoute"/>
         </route>
     </router>

@@ -26,17 +26,28 @@ class Index extends Action
         $productUrlKey = 'marco-lightweight-active-hoodie.html'; // The URL key of your product
 
         try {
+            // Get the Store URL
             $store = $this->storeManager->getStore();
-            $productUrl = $store->getBaseUrl() . $productUrlKey;
 
+            // Append the product URL key to the base URL
+            $productUrl = $store->getBaseUrl() . $productUrlKey; // mag.test/marco-lightweight-active-hoodie.html
+
+            // Create a redirect instance
             $resultRedirect = $this->resultRedirectFactory->create();
-            $resultRedirect->setUrl($productUrl);
-            return $resultRedirect;
 
+            // Set the redirect URL
+            $resultRedirect->setUrl($productUrl);
+
+            // Route to the Specified URL
+            return $resultRedirect;
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage(__('An error occurred while trying to redirect.'));
+
+            // Create a redirect instance
             $resultRedirect = $this->resultRedirectFactory->create();
-            $resultRedirect->setPath('/'); // Redirect to homepage on error
+
+            // Redirect to homepage on error
+            $resultRedirect->setPath('/'); 
             return $resultRedirect;
         }
     }

@@ -6,27 +6,20 @@
         <!-- Remove completely from original position -->
         <referenceBlock name="catalog.product.related" remove="true" />
         
-        <!-- Add related products as a new tab -->
+        <!-- Target the product info details block, which contains all the product tabs like Description, Reviews -->
         <referenceBlock name="product.info.details">
+            <!-- Add a new block inside -->
             <block class="Magento\Catalog\Block\Product\ProductList\Related" 
                    name="catalog.product.related.tab" 
                    template="Magento_Catalog::product/list/custom-items.phtml" 
                    group="detailed_info">
 
-                <!-- Tab title and identifier -->
-              <arguments>
+                <!-- Pass arguments to the block inside the details product -->
+                <arguments>
                     <argument name="type" xsi:type="string">related</argument>
                     <argument name="title" translate="true" xsi:type="string">Related Products</argument>
                     <argument name="sort_order" xsi:type="number">30</argument>
                 </arguments>
-
-                <!-- Content -->
-                 <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" 
-                       name="catalog.product.related.tab.item" 
-                       as="list_item">
-                    <container name="catalog.product.related.tab.item.info" as="product_item_info"/>
-                    <container name="catalog.product.related.tab.item.actions" as="product_item_actions"/>
-                </block>
             </block>
         </referenceBlock>
     </body>
